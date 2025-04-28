@@ -41,6 +41,10 @@ async function pollForResult(url) {
     }, 2000);
   });
 }
+//To ping Backend
+app.get("/", async (req, res) => {
+  res.send("Hello World");
+});
 
 // Set up a simple proxy route to forward the request to the S3 bucket
 app.post("/execute", async (req, res) => {
