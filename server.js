@@ -9,6 +9,8 @@ const port = process.env.PORT || 5000;
 app.use(
   cors({
     origin: ["http://localhost:3000", "https://code-online-nu.vercel.app"],
+    methods: "GET, POST, PATCH, DELETE, HEAD",
+    credentials: true,
   })
 );
 app.use(express.json());
@@ -42,7 +44,7 @@ async function pollForResult(url) {
   });
 }
 //To ping Backend
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
